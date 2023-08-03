@@ -21,6 +21,16 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Stage 3: Production
 FROM python:3.8-slim-buster AS production
 
+# Add build-time environment variables
+ARG OPENAI_API_KEY
+ARG DIAGRAM_API
+ARG EXTERNAL_DIAGRAM_API
+
+# Translate build arguments to environment variables
+ENV OPENAI_API_KEY=${OPENAI_API_KEY}
+ENV DIAGRAM_API=${DIAGRAM_API}
+ENV EXTERNAL_DIAGRAM_API=${EXTERNAL_DIAGRAM_API}
+
 COPY --from=backend-build /usr/local/lib/python3.8/site-packages/ /usr/local/lib/python3.8/site-packages/
 COPY --from=backend-build /usr/local/bin/gunicorn /usr/local/bin/
 
