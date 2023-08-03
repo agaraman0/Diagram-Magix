@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Button, TextField, Box, CircularProgress, AppBar, Toolbar, Typography, Container, Grid, Paper, Link } from '@mui/material';
+import { Button, TextField, Box, CircularProgress, AppBar, Toolbar, Typography, Container, Grid, Paper, Link, IconButton } from '@mui/material';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import axios from 'axios';
 
 // Header Component
