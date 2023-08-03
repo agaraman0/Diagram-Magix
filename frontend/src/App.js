@@ -4,11 +4,20 @@ import axios from 'axios';
 
 // Header Component
 const Header = () => (
-  <AppBar position="static" color="secondary">
+  <AppBar position="static" color="primary">
     <Toolbar>
       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
         Diagram Designer
       </Typography>
+      <IconButton color="inherit" href="https://www.linkedin.com/">
+        <LinkedInIcon />
+      </IconButton>
+      <IconButton color="inherit" href="https://twitter.com/">
+        <TwitterIcon />
+      </IconButton>
+      <IconButton color="inherit" href="https://github.com/">
+        <GitHubIcon />
+      </IconButton>
     </Toolbar>
   </AppBar>
 );
