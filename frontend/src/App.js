@@ -12,13 +12,13 @@ const Header = () => (
       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
         Diagram Designer
       </Typography>
-      <IconButton color="inherit" href="https://www.linkedin.com/">
+      <IconButton color="inherit" href="https://www.linkedin.com/in/agaraman0">
         <LinkedInIcon />
       </IconButton>
-      <IconButton color="inherit" href="https://twitter.com/">
+      <IconButton color="inherit" href="https://twitter.com/aman_agarwal0">
         <TwitterIcon />
       </IconButton>
-      <IconButton color="inherit" href="https://github.com/">
+      <IconButton color="inherit" href="https://github.com/agaraman0/Diagram-Magix">
         <GitHubIcon />
       </IconButton>
     </Toolbar>
