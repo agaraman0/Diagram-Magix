@@ -42,4 +42,4 @@ COPY backend/ .
 EXPOSE 5000
 
 # Run the gunicorn server
-CMD gunicorn --workers 5 --timeout 150 --bind 0.0.0.0:${PORT} app:app
+CMD gunicorn --workers 5 --bind 0.0.0.0:${PORT} app:app
