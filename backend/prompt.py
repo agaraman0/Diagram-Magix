@@ -5,7 +5,7 @@ from langchain.chat_models import ChatOpenAI
 openai_api_key = os.environ.get('OPENAI_API_KEY')
 
 
-chat = ChatOpenAI(temperature=0.9, openai_api_key=openai_api_key, model='gpt-3.5-turbo')
+chat = ChatOpenAI(temperature=0.9, openai_api_key=openai_api_key, model='gpt-4')
 
 review_template = """you are an expert in frameworks and libraries listed below 
 plantuml

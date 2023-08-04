@@ -3,7 +3,6 @@ import requests
 from flask import current_app, make_response, jsonify
 
 from prompt import prompt_template, chat, svg_prompt_template
-from constants import Framework, ResponseKeys, ErrorResponse
 
 DIAGRAM_API_URL = os.environ.get('DIAGRAM_API')
 EXTERNAL_API_URL = os.environ.get('EXTERNAL_DIAGRAM_API')
@@ -63,7 +62,7 @@ def format_response(api_response, key_value_delimeter, pair_delimeter):
 
 def try_building_diagram(api_url, recipe):
     try:
-        response = requests.request('POST', api_url, headers=DIAGRAM_API_HEADERS, data=recipe, timeout=5)
+        response = requests.request('POST', api_url, headers=DIAGRAM_API_HEADERS, data=recipe, timeout=7)
         return response if response.status_code == 200 else None
     except Exception as err:
         current_app.logger.info("Exception occur {}".format(err))
