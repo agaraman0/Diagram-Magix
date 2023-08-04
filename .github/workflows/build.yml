@@ -40,10 +40,10 @@ jobs:
           export OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
           export DIAGRAM_API=${{ secrets.DIAGRAM_API }}
           export EXTERNAL_DIAGRAM_API=${{ secrets.EXTERNAL_DIAGRAM_API }}
-          docker-compose down -v || true
+          docker-compose -f docker-compose.prod.yml down -v || true
           docker system prune -a -f
-          docker-compose build \
+          docker-compose -f docker-compose.prod.yml build \
             --build-arg OPENAI_API_KEY=${OPENAI_API_KEY} \
             --build-arg DIAGRAM_API=${DIAGRAM_API} \
             --build-arg EXTERNAL_DIAGRAM_API=${EXTERNAL_DIAGRAM_API}
-          docker-compose up -d
+          docker-compose -f docker-compose.prod.yml up -d
