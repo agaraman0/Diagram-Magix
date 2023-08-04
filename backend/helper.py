@@ -63,7 +63,7 @@ def format_response(api_response, key_value_delimeter, pair_delimeter):
 
 def try_building_diagram(api_url, recipe):
     try:
-        response = requests.request('POST', api_url, headers=DIAGRAM_API_HEADERS, data=recipe, timeout=7)
+        response = requests.request('POST', api_url, headers=DIAGRAM_API_HEADERS, data=recipe, timeout=2)
         return response if response.status_code == 200 else None
     except Exception as err:
         current_app.logger.info("Exception occur {}".format(err))
