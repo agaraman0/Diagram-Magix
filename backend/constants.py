@@ -5,10 +5,17 @@ response = """<svg xmlns="http://www.w3.org/2000/svg" width="300" height="80" st
 </svg>
 """
 
+STANDARD_KEY_VALUE_DELIMETER = '%^&'
+STANDARD_PAIR_DELIMETER = '$$'
+
+SVG_KEY_VALUE_DELIMETER = "#&*"
+SVG_PAIR_DELIMETER = "@#&"
+
 
 class ErrorResponse:
     text = response
     status_code = 500
+
 
 class Framework(Enum):
     MERMAID = "mermaid"
