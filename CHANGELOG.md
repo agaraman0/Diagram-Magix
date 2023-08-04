@@ -2,7 +2,14 @@ Changelog
 =========
 
 
+(unreleased)
 ------------
+- README updated. [agaraman0]
+- Build flow updated respective to docker-compose. [agaraman0]
+- Dev prod docker-compose build seperated. [agaraman0]
+- Docker-compose.yml seperated. [agaraman0]
+- Gunicorn timeout updated. [agaraman0]
+- Chore: update changelog. [agaraman0]
 - Backend helper updated for nomnoml error recovery. [agaraman0]
 - Model update and timeout api changes. [agaraman0]
 - Merge pull request #1 from agaraman0/try-retry-different. [Aman
