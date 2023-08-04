@@ -1,0 +1,48 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - OPENAI_API_KEY=your_local_dev_openai_key
+      - DIAGRAM_API=http://core:8000/
+      - EXTERNAL_DIAGRAM_API=https://kroki.io/
+  core:
+    image: yuzutech/kroki
+    environment:
+      - KROKI_BLOCKDIAG_HOST=blockdiag
+      - KROKI_MERMAID_HOST=mermaid
+      - KROKI_BPMN_HOST=bpmn
+      - KROKI_EXCALIDRAW_HOST=excalidraw
+      - KROKI_WIREVIZ_HOST=wireviz
+    ports:
+      - "8000:8000"
+  blockdiag:
+    image: yuzutech/kroki-blockdiag
+    expose:
+      - "8001"
+  mermaid:
+    image: yuzutech/kroki-mermaid
+    expose:
+      - "8002"
+  bpmn:
+    image: yuzutech/kroki-bpmn
+    expose:
+      - "8003"
+  excalidraw:
+    image: yuzutech/kroki-excalidraw
+    expose:
+      - "8004"
+  # experimental!
+  diagramsnet:
+    image: yuzutech/kroki-diagramsnet
+    expose:
+      - "8005"
+  wireviz:
+    image: yuzutech/kroki-wireviz
+    ports:
+      - "8006:8006"
