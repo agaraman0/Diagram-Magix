@@ -54,29 +54,7 @@ docker-compose -f docker-compose.dev.yml down
 
 ## 🤖 What Differentiates it
 1. Backend has capability to generate diagrams with more then 15+ frameworks as listed below
-	- Plantuml  
-	- Mermaid  
-	- Blockading  
-	- Bytefield  
-	- Seqdiag  
-	- Actdiag  
-	- Nwdiag  
-	- Packetdiag  
-	- Rackdiag  
-	- C4-Plantuml  
-	- D2  
-	- DBML  
-	- Ditaa  
-	- Excalidraw  
-	- Graphviz  
-	- Nomnoml  
-	- Pikchr  
-	- Structurizr  
-	- Svgbob  
-	- Vega  
-	- Vegalite  
-	- Wavedrom  
-	- Wireviz
+   Plantuml, Mermaid, Blockading, Bytefield, Seqdiag, Actdiag, Nwdiag, Packetdiag, Rackdiag, C4-Plantuml, D2, DBML, Ditaa, Excalidraw, Graphviz, Nomnoml, Pikchr, Structurizr, Svgbob, Vega, Vegalite, Wavedrom, Wireviz
 2. How did we achieve integration with 15+ Diagram generation different frameworks here comes the [Kroki](https://github.com/yuzutech/kroki)
 3. As this is dependent on two third party services for that we have fall back mechanism in case even if generation fails it tries to makes sure you are getting at least a beautiful svg
 4. You will be able to download your diagram or SVG
