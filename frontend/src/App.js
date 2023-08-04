@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { renderToString } from 'react-dom/server';
+import { ReactSVG } from 'react-svg';
 import { Button, TextField, Box, CircularProgress, AppBar, Toolbar, Typography, Container, Grid, Paper, Link, IconButton } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -41,17 +43,18 @@ function App() {
   const [description, setDescription] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [svgData, setSvgData] = useState(null);
+  const svgRef = useRef(null);
 
   const handleDesignClick = async () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('/call_prompt', 
+      const response = await axios.post('/call_prompt',
         {
           input: description,
         },
         {
-          headers: {"Content-Type": "application/json"},
+          headers: { "Content-Type": "application/json" },
           redirect: 'follow'
         }
       );
@@ -66,8 +69,27 @@ function App() {
   };
 
   // Creating a Blob from SVG data
-  const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+  const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
   const svgUrl = URL.createObjectURL(svgBlob);
+
+  const downloadPNG = () => {
+    const svgString = renderToString(svgRef.current);
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+
+    img.src = `data:image/svg+xml;base64,${btoa(svgString)}`;
+    img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+      const pngUrl = canvas.toDataURL();
+      const link = document.createElement('a');
+      link.href = pngUrl;
+      link.download = 'diagram.png';
+      link.click();
+    };
+  };
 
   return (
     <Box
@@ -95,7 +117,7 @@ function App() {
                 overflow: "auto",
               }}
             >
-              {isLoading ? <CircularProgress /> : <div dangerouslySetInnerHTML={{ __html: svgData }} />}
+              {isLoading ? <CircularProgress /> : <ReactSVG src={svgUrl} ref={svgRef} />}
             </Box>
           </Grid>
 
@@ -121,9 +143,14 @@ function App() {
               </Button>
 
               {!isLoading && svgData && (
-                <Link href={svgUrl} download="diagram.svg" sx={{ mt: 2, display: 'block' }}>
-                  Download Diagram
-                </Link>
+                <>
+                  <Link href={svgUrl} download="diagram.svg" sx={{ mt: 2, display: 'block' }}>
+                    Download Diagram (SVG)
+                  </Link>
+                  <Button onClick={downloadPNG} sx={{ mt: 2, display: 'block' }}>
+                    Download Diagram (PNG)
+                  </Button>
+                </>
               )}
             </Paper>
           </Grid>
