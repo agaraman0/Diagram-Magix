@@ -3,6 +3,7 @@ import requests
 from flask import current_app, make_response, jsonify
 
 from prompt import prompt_template, chat, svg_prompt_template
+from constants import Framework
 
 DIAGRAM_API_URL = os.environ.get('DIAGRAM_API')
 EXTERNAL_API_URL = os.environ.get('EXTERNAL_DIAGRAM_API')
@@ -93,6 +94,9 @@ def process_code_recipe(code_recipe, framework):
     """
     if code_recipe.startswith(framework):
         code_recipe = code_recipe.strip(framework)
+    if framework == Framework.NOMNOML.value:
+        code_recipe = code_recipe.strip('[')
+        code_recipe = code_recipe.strip(']')
 
     current_app.logger.info("processed recipe for {} with final recipe {}".format(framework, code_recipe))
     return code_recipe
