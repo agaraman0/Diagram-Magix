@@ -18,11 +18,12 @@
 
 If you've ever faced the need of creating diagrams for a specific use case, this project is for you.
 
-<img width="408" alt="Screenshot 2023-08-04 at 11 39 54 AM" src="https://github.com/agaraman0/Diagram-Magix/assets/29687692/69b8c9cf-8b6e-45e9-8d06-e39a03efc5f1">
+
+https://github.com/agaraman0/Diagram-Magix/assets/29687692/d11c6fca-c9df-48e5-a799-b516b579e54e
+
 
 <img width="618" alt="Screenshot 2023-08-04 at 7 01 28 AM" src="https://github.com/agaraman0/Diagram-Magix/assets/29687692/165cef2c-1aeb-482c-9bf7-2dbfd9817b36">
 
-<img width="1439" alt="Screenshot 2023-08-03 at 1 06 46 AM" src="https://github.com/agaraman0/Diagram-Magix/assets/29687692/5f47f315-b0c5-4848-a5af-c99455273f60">
 
 with the collective brilliance of the OSS community and the current state of LLMs, it's now possible to generate a diagram just from a description.
 
